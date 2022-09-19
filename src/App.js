@@ -28,11 +28,14 @@ const App = () => {
     }
     NOT THE CORRECT WAY TO UPDATE STATE USING PREVIOUS STATE*/
 
+
     const addExpenseHandler = (enteredExpenseData) => {
         setExpenses(prevState => {
             return [enteredExpenseData, ...prevState];
         });
     }
+
+
     const [expenses, setExpenses] = useState(dummyExpenses);
 
 
