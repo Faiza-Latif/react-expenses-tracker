@@ -6,7 +6,8 @@ const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
-    //because in the end when we submit the expense we want to submit the most recent values;
+
+        //because in the end when we submit the expense we want to submit the most recent values;
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value);
     };
@@ -19,6 +20,8 @@ const ExpenseForm = (props) => {
         setEnteredDate(event.target.value);
     };
 
+
+
     const submitHandler = (event) => {
         event.preventDefault(); //because we dont want the page to reload
         const expenseData = {
@@ -29,7 +32,9 @@ const ExpenseForm = (props) => {
         props.onSaveExpenseData(expenseData);
         setEnteredTitle('');
         setEnteredAmount('');
-        setEnteredDate('');    }
+        setEnteredDate('');
+        }
+
 
     return (
         <form onSubmit={submitHandler}>
@@ -60,6 +65,7 @@ const ExpenseForm = (props) => {
                 </div>
             </div>
             <div className='new-expense__actions'>
+                <button type='button' onClick={props.onCancel}>Cancel</button>
                 <button type='submit'>Add Expense</button>
             </div>
         </form>
